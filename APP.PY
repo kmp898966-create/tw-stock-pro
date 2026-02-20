@@ -1,16 +1,3 @@
-import os
-import subprocess
-import sys
-
-# 強迫伺服器立刻安裝所有缺失的零件
-def install_packages():
-    packages = ["finmind", "pandas", "plotly", "streamlit", "altair"]
-    for p in packages:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", p])
-
-# 執行安裝
-install_packages()
-
 import streamlit as st
 import pandas as pd
 # ... 後面原本的程式碼維持不變
@@ -114,4 +101,5 @@ try:
 except Exception as e:
 
     st.error(f"執行出錯: {e}")
+
 
