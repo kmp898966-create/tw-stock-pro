@@ -1,3 +1,9 @@
+import os
+# 強迫安裝所有缺失的套件
+os.system("pip install finmind pandas plotly streamlit altair")
+
+import streamlit as st
+# ... 後面維持原樣
 import streamlit as st
 import pandas as pd
 from FinMind.data import DataLoader
@@ -98,4 +104,5 @@ try:
             st.table(display_df)
 
 except Exception as e:
+
     st.error(f"執行出錯: {e}")
