@@ -1,11 +1,19 @@
 import os
-# 強迫安裝所有缺失的套件
-os.system("pip install finmind pandas plotly streamlit altair")
+import subprocess
+import sys
+
+# 強迫伺服器立刻安裝所有缺失的零件
+def install_packages():
+    packages = ["finmind", "pandas", "plotly", "streamlit", "altair"]
+    for p in packages:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", p])
+
+# 執行安裝
+install_packages()
 
 import streamlit as st
-# ... 後面維持原樣
-import streamlit as st
 import pandas as pd
+# ... 後面原本的程式碼維持不變
 from FinMind.data import DataLoader
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -106,3 +114,4 @@ try:
 except Exception as e:
 
     st.error(f"執行出錯: {e}")
+
